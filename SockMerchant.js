@@ -31,15 +31,15 @@ function sockMerchant(n, ar) {
 
     for(let i = 0; i < n; i++) {
         if(socksIndex.hasOwnProperty(ar[i])) {
-            socksIndex[i] += 1;
+            socksIndex[ar[i]] += 1;
         } else {
-            socksIndex[i] = 1;
+            socksIndex[ar[i]] = 1;
         }
     }
 
     for(let sock in socksIndex) {
-        if(socksIndex[sock] % 2 === 0) {
-            sockPairsCount++;
+        if(socksIndex[sock] >= 2) {
+            sockPairsCount += Math.floor((socksIndex[sock] / 2));
         }
     }
 
